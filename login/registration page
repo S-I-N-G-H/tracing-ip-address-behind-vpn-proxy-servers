@@ -1,0 +1,121 @@
+html(registration page) -
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - IP Tracing Portal</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Create Your Account</h2>
+    <form method="POST" action="/auth/register">
+      <label for="email">Email:</label>
+      <input type="email" name="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" required minlength="6" />
+
+      <label for="role">Role:</label>
+      <select name="role" required>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="/auth/login">Login here</a></p>
+  </div>
+</body>
+</html>
+-------------------------------------------------------------------------------------------
+html(login page)-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - IP Tracing Portal</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Login to Your Account</h2>
+    <form method="POST" action="/auth/login">
+      <label for="email">Email:</label>
+      <input type="email" name="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" required />
+
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="/auth/register">Register here</a></p>
+  </div>
+</body>
+</html>
+--------------------------------------------------------------------------------------------------
+css(common)-
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 100px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input, select, button {
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 1em;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

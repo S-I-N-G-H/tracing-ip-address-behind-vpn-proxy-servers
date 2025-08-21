@@ -1,0 +1,71 @@
+HTML - 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IP Tracing Portal - Welcome</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to IP Tracing Portal</h1>
+    <p>Choose an option to continue:</p>
+
+    <div class="button-group">
+      <a href="/auth/register" class="btn">Register</a>
+      <a href="/auth/login" class="btn">Login</a>
+    </div>
+  </div>
+</body>
+</html>
+------------------------------------------------------------------------------------------
+css-
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 500px;
+  margin: 100px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+--------------------------------------------------------------------------------------------------
+java script -
+document.getElementsByTagName("h1")[0].style.fontSize = "6vw";

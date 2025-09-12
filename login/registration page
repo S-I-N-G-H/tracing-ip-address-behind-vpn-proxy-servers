@@ -38,44 +38,67 @@ html(login page)-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - IP Tracing Portal</title>
   <link rel="stylesheet" href="/static/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
-  <div class="container">
-    <h2>Login to Your Account</h2>
-    <form method="POST" action="/auth/login">
-      <label for="email">Email:</label>
-      <input type="email" name="email" required />
+  <div class="login-container">
+    <div class="login-box">
+      <h2><i class="fas fa-user-shield"></i> Secure Login</h2>
+      <form method="POST" action="/auth/login">
+        <div class="form-group">
+          <label for="email"><i class="fas fa-envelope"></i> Email</label>
+          <input type="email" name="email" placeholder="you@example.com" required />
+        </div>
 
-      <label for="password">Password:</label>
-      <input type="password" name="password" required />
+        <div class="form-group">
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
+          <input type="password" name="password" placeholder="Enter your password" required />
+        </div>
 
-      <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="/auth/register">Register here</a></p>
+        <button type="submit" class="btn-login">Login</button>
+      </form>
+      <p class="register-link">Don't have an account? <a href="/auth/register">Register here</a></p>
+    </div>
   </div>
 </body>
 </html>
 --------------------------------------------------------------------------------------------------
 css(common)-
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f0f2f5;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
 }
 
-.container {
+.login-container {
+  width: 100%;
   max-width: 400px;
-  margin: 100px auto;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  padding: 20px;
 }
 
-h2 {
+.login-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.login-box h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 1.6em;
+  color: #2a5298;
 }
 
 form {
@@ -83,39 +106,69 @@ form {
   flex-direction: column;
 }
 
+.form-group {
+  margin-bottom: 15px;
+}
+
 label {
-  margin-top: 10px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+  color: #333;
 }
 
-input, select, button {
-  padding: 10px;
-  margin-top: 5px;
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   font-size: 1em;
+  transition: border-color 0.3s ease;
 }
 
-button {
+input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.btn-login {
   margin-top: 20px;
+  padding: 12px;
   background-color: #007BFF;
   color: white;
   border: none;
   border-radius: 6px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
+.btn-login:hover {
   background-color: #0056b3;
 }
 
-p {
+.register-link {
   text-align: center;
   margin-top: 20px;
+  font-size: 0.95em;
 }
 
-a {
+.register-link a {
   color: #007BFF;
   text-decoration: none;
 }
 
-a:hover {
+.register-link a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px;
+  }
+
+  .login-box h2 {
+    font-size: 1.4em;
+  }
 }

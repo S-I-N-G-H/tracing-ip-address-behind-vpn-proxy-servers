@@ -6,26 +6,37 @@ html(registration page) -
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register - IP Tracing Portal</title>
   <link rel="stylesheet" href="/static/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
-  <div class="container">
-    <h2>Create Your Account</h2>
-    <form method="POST" action="/auth/register">
-      <label for="email">Email:</label>
-      <input type="email" name="email" required />
+  <div class="login-container">
+    <div class="login-box">
+      <h2><i class="fas fa-user-plus"></i> Create Your Account</h2>
+      <form method="POST" action="/auth/register">
+        <div class="form-group">
+          <label for="email"><i class="fas fa-envelope"></i> Email</label>
+          <input type="email" name="email" placeholder="you@example.com" required />
+        </div>
 
-      <label for="password">Password:</label>
-      <input type="password" name="password" required minlength="6" />
+        <div class="form-group">
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
+          <input type="password" name="password" placeholder="Minimum 6 characters" required minlength="6" />
+        </div>
 
-      <label for="role">Role:</label>
-      <select name="role" required>
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-      </select>
+        <div class="form-group">
+          <label for="role"><i class="fas fa-user-tag"></i> Role</label>
+          <select name="role" required>
+            <option value="" disabled selected>Select your role</option>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
 
-      <button type="submit">Register</button>
-    </form>
-    <p>Already have an account? <a href="/auth/login">Login here</a></p>
+        <button type="submit" class="btn-login">Register</button>
+      </form>
+      <p class="register-link">Already have an account? <a href="/auth/login">Login here</a></p>
+    </div>
   </div>
 </body>
 </html>
